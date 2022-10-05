@@ -1,0 +1,33 @@
+{
+  "name": "cantaloupe",
+  "version": "0.1.4",
+  "private": false,
+  "dependencies": {
+    "@types/node": "^16.11.44",
+    "@types/lodash": "^4.14.186",
+    "typescript": "^4.7.4",
+    "lodash": "^4.17.21"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "eslintConfig": {},
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  },
+  "peerDependencies": {
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "author": {
+    "name": "Kenneth Sanders",
+    "email": "npm@kensand.net"
+  },
+  "repository": {
+    "url": "https://github.com/kensand/cantaloupe.git"
+  },
+  "description": "Typescript utilities and extensions",
+  "license": "MIT"
+}
