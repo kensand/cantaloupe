@@ -10,7 +10,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "pub": "npm run clean && npm run build && npm version patch && npm publish"
   },
   "eslintConfig": {},
   "devDependencies": {
