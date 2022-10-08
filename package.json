@@ -1,6 +1,6 @@
 {
   "name": "cantaloupe",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "dependencies": {
     "@types/node": "^16.11.44",
@@ -17,11 +17,12 @@
   "devDependencies": {
     "prettier": "^2.7.1"
   },
-  "peerDependencies": {
-  },
+  "peerDependencies": {},
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "author": {
     "name": "Kenneth Sanders",
     "email": "npm@kensand.net"
