@@ -84,3 +84,12 @@ export const requireNotNil: <T, U = T | null | undefined>(
 
 export const emptyPromise = () =>
   new Promise<undefined>((resolve) => resolve(undefined));
+
+export const mapSeries = <T, U>(mapper: (value: T) => Promise<U>) => async (input: Iterable<T>): Promise<U[]> => {
+    let a: U[] = [];
+    for (let i of input) {
+        const val = await mapper(i);
+        a.push(val);
+    }
+    return a;
+};
