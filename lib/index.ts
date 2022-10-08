@@ -3,4 +3,5 @@ export {
   mapNotNil,
   requireNotNil,
   emptyPromise,
+  mapSeries
 } from "./functions";
