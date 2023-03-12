@@ -2,7 +2,7 @@ import { Nil, NonEmpty } from "./types";
 import { negate } from "./functions";
 
 export const isNil = <T>(t: T | Nil): t is Nil => t === undefined || t === null;
-export const isNotNil = negate(isNil);
+export const isNotNil = <T>(t: T | Nil): t is T => negate(isNil)(t);
 
 export const isEmpty = <T>(t: T[]): t is never[] => t.length == 0;
 export const isNotEmpty = <T>(t: T[]): t is NonEmpty<T> => negate(isEmpty)(t);
