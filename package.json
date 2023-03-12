@@ -4,9 +4,8 @@
   "private": false,
   "scripts": {
     "prettier": "npx prettier --write .",
-    "bundle_esm": "esbuild dist/tsc-out/index.js --bundle --sourcemap --platform=browser --outdir=dist/esm",
-    "bundle_cjs": "esbuild dist/tsc-out/index.js --bundle --sourcemap --platform=node --outdir=dist/cjs",
-    "build": "npm run prettier && tsc && npm run bundle_esm && npm run bundle_cjs",
+    "bundle": "node esbuild.config.mjs",
+    "build": "npm run prettier && tsc && npm run bundle",
     "clean": "rm -rf dist",
     "update": "npm update --save && ((! git diff --exit-code package.json > /dev/null && git add package.json && git commit -m 'Dependency updates') || true)",
     "pub": "npm run clean && npm run build && npm version patch && npm publish"
