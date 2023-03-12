@@ -2,27 +2,38 @@
   "name": "cantaloupe",
   "version": "0.1.6",
   "private": false,
-  "dependencies": {
-    "@types/node": "^16.11.44",
-    "@types/lodash": "^4.14.186",
-    "typescript": "^4.7.4",
-    "lodash": "^4.17.21"
-  },
   "scripts": {
-    "build": "tsc",
+    "prettier": "npx prettier --write .",
+    "bundle_esm": "esbuild dist/tsc-out/index.js --bundle --sourcemap --platform=browser --outdir=dist/esm",
+    "bundle_cjs": "esbuild dist/tsc-out/index.js --bundle --sourcemap --platform=node --outdir=dist/cjs",
+    "build": "npm run prettier && tsc && npm run bundle_esm && npm run bundle_cjs",
     "clean": "rm -rf dist",
+    "update": "npm update --save && ((! git diff --exit-code package.json > /dev/null && git add package.json && git commit -m 'Dependency updates') || true)",
     "pub": "npm run clean && npm run build && npm version patch && npm publish"
   },
   "eslintConfig": {},
   "devDependencies": {
-    "prettier": "^2.7.1"
+    "prettier": "^2.8.4",
+    "@types/node": "^18.15.0",
+    "typescript": "^4.9.5",
+    "esbuild": "^0.17.11"
   },
   "peerDependencies": {},
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
   "files": [
-    "dist"
+    "dist/cjs",
+    "dist/esm",
+    "dist/types"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "author": {
     "name": "Kenneth Sanders",
     "email": "npm@kensand.net"
@@ -30,6 +41,6 @@
   "repository": {
     "url": "https://github.com/kensand/cantaloupe.git"
   },
-  "description": "Typescript utilities and extensions",
+  "description": "Typescript utilities",
   "license": "MIT"
 }

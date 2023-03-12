@@ -1,2 +1,3 @@
 # cantaloupe
-Typescript utilities and extensions
+
+Typescript utilities
