@@ -1,3 +1,1 @@
-# cantaloupe
-
-Typescript utilities
+Migrated to https://codeberg.org/kensand/cantaloupe
